@@ -135,11 +135,27 @@ public abstract class AbstractExecutor {
 
     /**
      * 重新设置线程池的最大线程数量
+     *
      * @param maximumPoolSize
      */
-    public void  setMaximumPoolSize(int maximumPoolSize){
+    public void setMaximumPoolSize(int maximumPoolSize) {
         this.executor.setMaximumPoolSize(maximumPoolSize);
     }
 
+    /**
+     * 是否允许核心线程超时
+     *
+     * @param isAllow
+     */
+    public void allowCoreThreadTimeOut(boolean isAllow) {
+        this.executor.allowCoreThreadTimeOut(isAllow);
+    }
+
+    /**
+     * @return
+     */
+    public boolean isAllowCoreThreadTimeOut() {
+        return this.executor.allowsCoreThreadTimeOut();
+    }
 
 }

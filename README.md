@@ -122,9 +122,6 @@ Java提供了四种拒绝策略，我们也可以实现`RejectedExecutionHandler
 4. `CallerRunsPolicy`
     当任务满了，则丢给发起任务的任务方处理，即不使用线程池的线程执行而是外部自己使用线程池执行
 
-
-参照我的github提供的库:[ThreadExecutor](https://github.com/liweijieok/ThreadExecutor)
-
 ### 系统提供的线程池
 
 1. `Executors.newCachedThreadPool()`

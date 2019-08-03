@@ -22,6 +22,7 @@
 同时也提供了SystemThreadManager来获取java提供的常用线程值，只不过每次获取都是new的形式。
 
 例如：
+
 ```
 DiscardExecutor.getInstance().execute(new Runnable() {
             @Override

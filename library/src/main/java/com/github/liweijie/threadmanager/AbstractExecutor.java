@@ -6,6 +6,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import domain.ExecutorType;
+
 /**
  * 作者：黎伟杰 on 2019/7/7.
  * 邮箱：liweijieok@qq.com
@@ -30,6 +32,10 @@ public abstract class AbstractExecutor {
         this.executor = ExecutorManager.getManager().getExecutor(getType());
     }
 
+    /**
+     * 这里没有实现所有的ThreadPoolExecutor方法，若是不足可以自己获取这个自己调用
+     * @return
+     */
     public ThreadPoolExecutor getExecutor() {
         return this.executor;
     }
@@ -127,7 +133,6 @@ public abstract class AbstractExecutor {
      * @param timeout
      * @param unit
      * @return
-     * @throws InterruptedException
      */
     public boolean awaitTermination(long timeout, TimeUnit unit) throws InterruptedException {
         return this.executor.awaitTermination(timeout, unit);

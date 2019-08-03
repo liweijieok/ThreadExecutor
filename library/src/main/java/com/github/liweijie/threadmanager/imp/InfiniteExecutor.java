@@ -1,6 +1,7 @@
 package com.github.liweijie.threadmanager.imp;
 
 import com.github.liweijie.threadmanager.AbstractExecutor;
+
 import domain.ExecutorType;
 
 /**
@@ -12,17 +13,16 @@ import domain.ExecutorType;
  *
  * @author liweijie
  */
-public class AbortExecutor extends AbstractExecutor {
-
-    private AbortExecutor() {
+public class InfiniteExecutor extends AbstractExecutor {
+    private InfiniteExecutor() {
     }
 
-    private static class AbortExecutorHolder{
-        private static final AbortExecutor INSTANCE = new AbortExecutor();
+    private static class InfiniteExecutorHolder {
+        private static final InfiniteExecutor INSTANCE = new InfiniteExecutor();
     }
 
-    public static AbortExecutor getInstance() {
-        return AbortExecutorHolder.INSTANCE;
+    public static InfiniteExecutor getInstance() {
+        return InfiniteExecutor.InfiniteExecutorHolder.INSTANCE;
     }
 
     @Override

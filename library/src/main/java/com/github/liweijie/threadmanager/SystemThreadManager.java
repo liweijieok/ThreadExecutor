@@ -2,8 +2,8 @@ package com.github.liweijie.threadmanager;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 作者：黎伟杰 on 2019/8/1.
@@ -28,39 +28,38 @@ public class SystemThreadManager {
         return SystemThreadManagerHolder.MANAGER;
     }
 
-    public ExecutorService getCache() {
-        return getCache(new ThreadFactory() {
-            private AtomicInteger count = new AtomicInteger();
-
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread t = new Thread();
-                t.setName("thread_" + count.getAndIncrement());
-                return t;
-            }
-        });
+    public ExecutorService newCache() {
+        return newCache(new DefaultThreadFactory("cache"));
     }
 
-    public ExecutorService getCache(ThreadFactory factory) {
+    public ExecutorService newCache(ThreadFactory factory) {
         return Executors.newCachedThreadPool(factory);
     }
 
-    public ExecutorService getFix(int size) {
-        return getFix(size, new ThreadFactory() {
-            private AtomicInteger count = new AtomicInteger();
-
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread t = new Thread();
-                t.setName("thread_" + count.getAndIncrement());
-                return t;
-            }
-        });
+    public ExecutorService newFix(int size) {
+        return newFix(size, new DefaultThreadFactory("fix"));
     }
 
-    public ExecutorService getFix(int size, ThreadFactory factory) {
+    public ExecutorService newFix(int size, ThreadFactory factory) {
         return Executors.newFixedThreadPool(size, factory);
     }
+
+    public ScheduledExecutorService newSchedule(int coreSize) {
+        return Executors.newScheduledThreadPool(coreSize);
+    }
+
+    public ScheduledExecutorService newSchedule(int size, ThreadFactory fac) {
+        return Executors.newScheduledThreadPool(size, fac);
+    }
+
+    public ScheduledExecutorService newSingleSchedule() {
+        return Executors.newSingleThreadScheduledExecutor();
+    }
+
+    public ScheduledExecutorService newSingleSchedule(ThreadFactory fac) {
+        return Executors.newSingleThreadScheduledExecutor(fac);
+    }
+
 
 
 }

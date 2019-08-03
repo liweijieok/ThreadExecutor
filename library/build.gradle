@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 14
         targetSdkVersion 28
         versionCode 102
         versionName "1.0.2"
@@ -24,10 +24,10 @@ android {
     publish {
         userOrg = 'liweijieok'
         groupId = 'com.github.liweijie'
-        artifactId = 'WeChatGroupAvatar'
-        publishVersion = '1.0.2'
-        desc="WeChat GroupAvatar"
-        website = 'https://github.com/liweijieok/WeChatGroupAvatar'
+        artifactId = 'ThreadExecutor'
+        publishVersion = '1.0.0'
+        desc="ThreadManager"
+        website = 'https://github.com/liweijieok/ThreadExecutor'
     }
 
 }

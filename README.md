@@ -17,7 +17,7 @@
 3. DiscardOldest 他的特性是当等待的线程池已满的时候，新来的任务不处理，默认等待队列大小128，核心线程大小是cpu+1
 3. CallerRunsExecutor 他与InfiniteExecutor类型，只不过当队列已满的时候，他是执行需要依靠外部来执行而不是像InfiniteExecutor直接起线程
 
-我们也可以自己通过调用`ExecutorManager.confir(ExecutorConfig)`来进行配置每一种线程池的具体大小，非核心线程池的超时时间，等待队列类型等
+我们也可以自己通过调用`ExecutorManager.config(ExecutorConfig)`来进行配置每一种线程池的具体大小，非核心线程池的超时时间，等待队列类型等
 
 同时也提供了SystemThreadManager来获取java提供的常用线程值，只不过每次获取都是new的形式
 

@@ -1,7 +1,7 @@
 package com.github.liweijie.threadmanager.imp;
 
 import com.github.liweijie.threadmanager.AbstractExecutor;
-import domain.ExecutorType;
+import com.github.liweijie.threadmanager.domain.ExecutorType;
 
 /**
  * 作者：黎伟杰 on 2019/7/7.

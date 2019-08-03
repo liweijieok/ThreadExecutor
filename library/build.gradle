@@ -25,7 +25,7 @@ android {
         userOrg = 'liweijieok'
         groupId = 'com.github.liweijie'
         artifactId = 'ThreadExecutor'
-        publishVersion = '1.0.0'
+        publishVersion = '1.0.1'
         desc="ThreadManager"
         website = 'https://github.com/liweijieok/ThreadExecutor'
     }

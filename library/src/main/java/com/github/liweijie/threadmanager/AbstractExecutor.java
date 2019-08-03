@@ -6,7 +6,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import domain.ExecutorType;
+import com.github.liweijie.threadmanager.domain.ExecutorType;
 
 /**
  * 作者：黎伟杰 on 2019/7/7.

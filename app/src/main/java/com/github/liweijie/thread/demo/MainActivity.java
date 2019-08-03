@@ -14,8 +14,8 @@ import com.github.liweijie.threadmanager.imp.InfiniteExecutor;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import domain.ExecutorConfig;
-import domain.ExecutorType;
+import com.github.liweijie.threadmanager.domain.ExecutorConfig;
+import com.github.liweijie.threadmanager.domain.ExecutorType;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -10,8 +10,8 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import domain.ExecutorConfig;
-import domain.ExecutorType;
+import com.github.liweijie.threadmanager.domain.ExecutorConfig;
+import com.github.liweijie.threadmanager.domain.ExecutorType;
 
 /**
  * 作者：黎伟杰 on 2019/6/19.
@@ -30,7 +30,7 @@ public class ExecutorManager {
         //cpu个数
         int processors = Runtime.getRuntime().availableProcessors() + 1;
         //无限，而且内部超出的话内部使用线程直接开启，不用管外部环境
-        DEFAULT_CONFIGS.put(ExecutorType.INFINITE.getType(), new ExecutorConfig(0, Integer.MAX_VALUE, new DefaultThreadFactory(ExecutorType.INFINITE.toString()), 0, TimeUnit.SECONDS, new SynchronousQueue<Runnable>()));
+        DEFAULT_CONFIGS.put(ExecutorType.INFINITE.getType(), new ExecutorConfig(0, Integer.MAX_VALUE, new DefaultThreadFactory(ExecutorType.INFINITE.toString()), 60, TimeUnit.SECONDS, new SynchronousQueue<Runnable>()));
         //超出丢弃旧的
         DEFAULT_CONFIGS.put(ExecutorType.DISCARD_OLDEST_POLICY.getType(), new ExecutorConfig(processors, processors, new DefaultThreadFactory(ExecutorType.DISCARD_OLDEST_POLICY.toString()), 60, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>(256)));
         //超出不处理
@@ -38,7 +38,7 @@ public class ExecutorManager {
         //超出打断
         DEFAULT_CONFIGS.put(ExecutorType.ABORT_POLICY.getType(), new ExecutorConfig(processors, processors, new DefaultThreadFactory(ExecutorType.ABORT_POLICY.toString()), 60, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(128)));
         //无限，使用系统的拒绝策略，但是假如超出的话，得开外部的环境，外部自己去执行任务
-        DEFAULT_CONFIGS.put(ExecutorType.CALLER_RUNS_POLICY.getType(), new ExecutorConfig(0, Integer.MAX_VALUE, new DefaultThreadFactory(ExecutorType.INFINITE.toString()), 0, TimeUnit.SECONDS, new SynchronousQueue<Runnable>()));
+        DEFAULT_CONFIGS.put(ExecutorType.CALLER_RUNS_POLICY.getType(), new ExecutorConfig(0, Integer.MAX_VALUE, new DefaultThreadFactory(ExecutorType.INFINITE.toString()), 60, TimeUnit.SECONDS, new SynchronousQueue<Runnable>()));
     }
 
 

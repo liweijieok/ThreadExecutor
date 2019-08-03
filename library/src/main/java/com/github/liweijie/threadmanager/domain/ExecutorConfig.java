@@ -1,4 +1,4 @@
-package domain;
+package com.github.liweijie.threadmanager.domain;
 
 import com.github.liweijie.threadmanager.DefaultThreadFactory;
 

@@ -1,4 +1,4 @@
-package domain;
+package com.github.liweijie.threadmanager.domain;
 
 /**
  * 作者：黎伟杰 on 2019/7/7.
